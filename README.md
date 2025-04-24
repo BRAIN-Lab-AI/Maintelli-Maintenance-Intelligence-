@@ -1,7 +1,5 @@
 # Maintelli: Maintenance Intelligence
 
-# [Deep Learning Project Template] Enhanced Stable Diffusion: A Deep Learning Approach for Artistic Image Generation
-
 ## Introduction
 Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines artistic image generation by leveraging an advanced diffusion process to convert textual descriptions into high-quality images. By integrating a modified UNet architecture with innovative loss functions and enhanced data augmentation strategies, the model iteratively refines a latent noise vector conditioned on text embeddings to produce detailed and visually compelling artwork. This approach not only addresses common challenges such as slow inference times and output inconsistencies found in traditional diffusion models, but also pushes the boundaries of creative image synthesis, paving the way for novel applications in art, design, and multimedia content creation.
 
@@ -22,16 +20,12 @@ Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines
 ## Project Technicalities
 
 ### Terminologies
-- **Diffusion Model:** A generative model that progressively transforms random noise into coherent data.
-- **Latent Space:** A compressed, abstract representation of data where complex features are captured.
-- **UNet Architecture:** A neural network with an encoder-decoder structure featuring skip connections for better feature preservation.
-- **Text Encoder:** A model that converts text into numerical embeddings for downstream tasks.
-- **Perceptual Loss:** A loss function that measures high-level differences between images, emphasizing perceptual similarity.
-- **Tokenization:** The process of breaking down text into smaller units (tokens) for processing.
-- **Noise Vector:** A randomly generated vector used to initialize the diffusion process in generative models.
-- **Decoder:** A network component that transforms latent representations back into image space.
-- **Iterative Refinement:** The process of gradually improving the quality of generated data through multiple steps.
-- **Conditional Generation:** The process where outputs are generated based on auxiliary inputs, such as textual descriptions.
+- **LSTM:** Long Short-Term Memory is a recurrent neural network model(RNN), designed to deal with sequential data.
+- **Window Size:** the number of consecutive time steps taken to predict the next step.
+- **Predictive Maintenance:** A stratgy that uses machine learning to predict equipment failure before it happens.
+- **Anomaly Detection:** The process of identifying data point that differ signifcantly from normal behavior.
+- **Threshold:** A value that is used to determine whether an MSE value is considred anomalous.
+nputs, such as textual descriptions.
 
 ### Problem Statements
 - **Problem 1:** Achieving high-resolution and detailed images using conventional diffusion models remains challenging.
@@ -39,43 +33,40 @@ Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines
 - **Problem 3:** There is limited capability in performing style transfer and generating diverse artistic variations.
 
 ### Loopholes or Research Areas
-- **Evaluation Metrics:** Lack of robust metrics to effectively assess the quality of generated images.
-- **Output Consistency:** Inconsistencies in output quality when scaling the model to higher resolutions.
-- **Computational Resources:** Training requires significant GPU compute resources, which may not be readily accessible.
+- **Data:** Lack of reliable real-world data to train the model.
+- **LSTM interpretability:** the model is considered a balck box. Therfore is it diffcult to explain why an anaomly was flagged.‹
 
-### Problem vs. Ideation: Proposed 3 Ideas to Solve the Problems
-1. **Optimized Architecture:** Redesign the model architecture to improve efficiency and balance image quality with faster inference.
-2. **Advanced Loss Functions:** Integrate novel loss functions (e.g., perceptual loss) to better capture artistic nuances and structural details.
-3. **Enhanced Data Augmentation:** Implement sophisticated data augmentation strategies to improve the model’s robustness and reduce overfitting.
+### Problem vs. Ideation: Proposed 2 Ideas to Solve the Problems
+1. **Sequence Based Architecture:** Utilize LSTM model for temporal multivariate in sensor data. Enabling the forecating of future machine behavior.
+2. **Reconstruction-Based Anomaly Detection:** Apply Mean Squared Error (MSE) between predicted and actual sensor values as a robust metric to identify deviations from normal operating conditions.
 
 ### Proposed Solution: Code-Based Implementation
-This repository provides an implementation of the enhanced stable diffusion model using PyTorch. The solution includes:
+This repository provides an implementation of the forecasting-based LSTM model using Python and TensorFlow/Keras. The solution includes:
 
-- **Modified UNet Architecture:** Incorporates residual connections and efficient convolutional blocks.
-- **Novel Loss Functions:** Combines Mean Squared Error (MSE) with perceptual loss to enhance feature learning.
-- **Optimized Training Loop:** Reduces computational overhead while maintaining performance.
+- **Deep LSTM Architecture:** A multi layer LSTM model is designed to capture trends in sensor data.
+- **MSE Based Anomaly Detection:** Mean Squared Error is computed between predicted and actual sensor outputs; anomalies are flagged using a dynamic threshold derived from validation errors.
 
 ### Key Components
-- **`model.py`**: Contains the modified UNet architecture and other model components.
-- **`train.py`**: Script to handle the training process with configurable parameters.
-- **`utils.py`**: Utility functions for data processing, augmentation, and metric evaluations.
-- **`inference.py`**: Script for generating images using the trained model.
+- **`Maintili.ipyn`**: Contains the trained model and results.
 
 ## Model Workflow
 The workflow of the Enhanced Stable Diffusion model is designed to translate textual descriptions into high-quality artistic images through a multi-step diffusion process:
 
 1. **Input:**
-   - **Text Prompt:** The model takes a text prompt (e.g., "A surreal landscape with mountains and rivers") as the primary input.
-   - **Tokenization:** The text prompt is tokenized and processed through a text encoder (such as a CLIP model) to obtain meaningful embeddings.
-   - **Latent Noise:** A random latent noise vector is generated to initialize the diffusion process, which is then conditioned on the text embeddings.
+   - **Sensor Sequence Window:** The model takes a multuvariate teime series input of sensor data such as pessure, temperature, and vibration
+   - **Preprocessing:** The input data is scaled using quantile normalization to map features into uniform distribution.
 
-2. **Diffusion Process:**
-   - **Iterative Refinement:** The conditioned latent vector is fed into a modified UNet architecture. The model iteratively refines this vector by reversing a diffusion process, gradually reducing noise while preserving the text-conditioned features.
-   - **Intermediate States:** At each step, intermediate latent representations are produced that increasingly capture the structure and details dictated by the text prompt.
+2. **Forecasting Process:**
+   - **LSTM-Based Sequence Modeling:** TThe input sequence is passed through stacked LSTM layers, which capture short- and long-term dependencies across sensor channels. 
+   - **Prediction Output:** he final layer predicts the next time step’s sensor readings (regression task), allowing the model to forecast what should happen next under normal conditions.
 
 3. **Output:**
-   - **Decoding:** The final refined latent representation is passed through a decoder (often part of a Variational Autoencoder setup) to generate the final image.
-   - **Generated Image:** The output is a synthesized image that visually represents the input text prompt, complete with artistic style and detail.
+   - **Reconstruction MSE:** The predicted values are compared against the actual future sensor readings. The error is calculated using Mean Squared Error (MSE) for each test sample.
+   - **Anomaly Detection:** A dynamic threshold, typically based on the mean and standard deviation of validation errors, is used to flag unusually high prediction errors as anomalies — signaling potential failures.
+
+
+4. **Output:**
+   - **Visualization and Evaluation:** TDetected anomalies are visualized over time alongside true failure labels (e.g., machine_status = 'BROKEN'), and model performance is evaluated using F1 score, confusion matrix, and ROC-AUC metrics.
 
 ## How to Run the Code
 
