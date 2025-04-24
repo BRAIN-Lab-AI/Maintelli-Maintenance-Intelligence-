@@ -1,6 +1,5 @@
 # Maintelli: Maintenance Intelligence
 
-Below is a template for another sample project. Please follow this template.
 # [Deep Learning Project Template] Enhanced Stable Diffusion: A Deep Learning Approach for Artistic Image Generation
 
 ## Introduction
@@ -8,19 +7,16 @@ Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines
 
 ## Project Metadata
 ### Authors
-- **Team:** Mohammad Ahmad, Umar Abdullah and Malik Hussain
+- **Team:** Najla Alkhaldi, Hibah Almashhad and Amal Almukhlal
 - **Supervisor Name:** Dr. Muzammil Behzad
-- **Affiliations:** SABIC, ARAMCO and KFUPM
+- **Affiliations:** ARAMCO and KFUPM
 
 ### Project Documents
 - **Presentation:** [Project Presentation](/presentation.pptx)
 - **Report:** [Project Report](/report.pdf)
 
 ### Reference Paper
-- [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
-
-### Reference Dataset
-- [LAION-5B Dataset](https://laion.ai/blog/laion-5b/)
+- [High-Resolution Image Synthesis with Latent Diffusion Models]([https://arxiv.org/abs/2112.10752](https://www.researchgate.net/publication/367553293_Predictive_Maintenance_and_Fault_Monitoring_Enabled_by_Machine_Learning_Experimental_Analysis_of_a_TA-48_Multistage_Centrifugal_Plant_Compressor))
 
 
 ## Project Technicalities
