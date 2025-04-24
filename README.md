@@ -5,7 +5,7 @@ Enhanced Stable Diffusion is a cutting-edge deep learning project that redefines
 
 ## Project Metadata
 ### Authors
-- **Team:** Najla Alkhaldi, Hibah Almashhad and Amal Almukhlal
+- **Team:** Najla Alkhaldi, Heba Almashhad and Amal Almukhlal
 - **Supervisor Name:** Dr. Muzammil Behzad
 - **Affiliations:** ARAMCO and KFUPM
 
