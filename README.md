@@ -92,5 +92,5 @@ The workflow of the LSTM model is forecast future sensor readings in industrial 
 
 ## Acknowledgments
 - **Open-Source Communities:** Thanks to the contributors of tensorflow, Keras, and other libraries for their amazing work.
-- **Individuals:** Special thanks to Heba, Amal, Najla for the amazing team effort, invaluable guidance and support throughout this project.
+- **Individuals:** Special thanks to Dr. Muzammil Behzad for his amazing efforts, invaluable guidance and support throughout this project.
 
