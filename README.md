@@ -12,7 +12,7 @@ this project aims to apply such techniques to a TA-48 multistage centrifugal com
 
 ### Project Documents
 - **Presentation:** [Project Presentation](/presentation.pptx)
-- **Report:** [Project Report](/report.pdf)
+- **Report:** [[Project Report](/report.pdf)](https://github.com/BRAIN-Lab-AI/Maintelli-Maintenance-Intelligence-/blob/main/DL%20project_Maintelli.pdf)
 
 ### Reference Paper
 - [Predictive Maintenance and Fault Monitoring Enabled by Machine Learning: Experimental Analysis of a TA-48 Multistage Centrifugal Plant Compressor]([[https://arxiv.org/abs/2112.10752](https://www.researchgate.net/publication/367553293_Predictive_Maintenance_and_Fault_Monitoring_Enabled_by_Machine_Learning_Experimental_Analysis_of_a_TA-48_Multistage_Centrifugal_Plant_Compressor)](https://www.mdpi.com/2076-3417/13/3/1790))
